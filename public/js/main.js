@@ -30,12 +30,15 @@ async function generateImageRequest(prompt, size) {
       }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
       removeSpinner();
+      console.log(data)
       throw new Error('That image could not be generated');
     }
 
-    const data = await response.json();
+    
     // console.log(data);
 
     const imageUrl = data.data;
