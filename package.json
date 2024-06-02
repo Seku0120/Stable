@@ -14,7 +14,9 @@
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "openai": "^3.3.0"
+    "imaginesdk": "^1.1.0",
+    "openai": "^3.3.0",
+    "replicate": "^0.30.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
