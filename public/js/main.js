@@ -19,7 +19,7 @@ async function generateImageRequest(prompt, size) {
   try {
     showSpinner();
 
-    const response = await fetch('/openai/generateimage', {
+    const response = await fetch('/generateimage/dall-e', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,17 +30,20 @@ async function generateImageRequest(prompt, size) {
       }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
       removeSpinner();
+      console.log(data)
       throw new Error('That image could not be generated');
     }
 
-    const data = await response.json();
+    
     // console.log(data);
 
     const imageUrl = data.data;
 
-    document.querySelector('#image').src = imageUrl;
+    document.querySelector('#dalle').src = imageUrl;
 
     removeSpinner();
   } catch (error) {
